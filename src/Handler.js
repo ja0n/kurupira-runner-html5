@@ -40,6 +40,7 @@ export default class Handler {
           case 'rectangle':
             console.log( Bodies.rectangle(x, y, width, height, actor));
             World.add(this.engine.world, Bodies.rectangle(x, y, width, height, cfg));
+
             break;
           case 'circle':
             console.log( Bodies.circle(x, y, radius, cfg));

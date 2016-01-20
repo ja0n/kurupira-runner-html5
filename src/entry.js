@@ -1,10 +1,12 @@
-import RenderKurupira from './RenderKurupiraNext';
 import Handler from './Handler';
 
+const data = require('./model.json');
+window.data = data;
+window.Handler = Handler;
+/*
 // Matter.js module aliases
 const { Engine, World, Body, Vector, Composite, Bodies, MouseConstraint } = Matter;
 
-const data = require('./model.json');
 
 let Game = new Handler(data);
 
@@ -26,6 +28,7 @@ Game.renderOptions.wireframes = false;
 Game.run();
 
 setTimeout(function() {
-  Body.applyForce(boxC, Vector.create(0, 0), Vector.create(0.1, -0.2));
+  Body.applyForce(boxC, Vector.create(0, 0), Vector.create(0.95, -0.5));
   // console.log(Composite.allBodies(engine.world));
 }, 2000);
+*/

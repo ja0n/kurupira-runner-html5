@@ -1,5 +1,5 @@
 {
-  "res": ["uq.jpg"],
+  "res": ["img/uq.jpg", "img/pokeball.png"],
   "name": "Cena 01",
   "actors": [{
     "x": 10,
@@ -20,6 +20,7 @@
     "y": 100,
     "width": 80,
     "height": 80,
+    "frictionAir": 0.0,
     "render": {
       "sprite": {
         "texture": "img/uq.jpg",
@@ -40,7 +41,7 @@
     "frictionAir": 0.0,
     "restitution": 0.5,
     "friction": 0.5,
-    "mass": 50,
+    "mass": 100,
     "render": {
       "sprite": {
         "texture": "img/pokeball.png",
