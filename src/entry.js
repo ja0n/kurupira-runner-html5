@@ -3,7 +3,6 @@ import Handler from './Handler';
 const data = require('./model.json');
 window.data = data;
 window.Handler = Handler;
-/*
 // Matter.js module aliases
 const { Engine, World, Body, Vector, Composite, Bodies, MouseConstraint } = Matter;
 
@@ -31,4 +30,5 @@ setTimeout(function() {
   Body.applyForce(boxC, Vector.create(0, 0), Vector.create(0.95, -0.5));
   // console.log(Composite.allBodies(engine.world));
 }, 2000);
-*/
+
+export default Handler;
