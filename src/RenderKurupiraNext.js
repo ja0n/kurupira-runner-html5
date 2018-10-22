@@ -150,9 +150,9 @@ export default class RenderKurupira {
       render.currentBackground = background;
     }
   }
-  world(engine) {
-    const { render, world } = engine;
-    const { context, container, options } = render;
+  world(render) {
+    const { engine, context, container, options } = render;
+    const { world } = engine;
     var bodies = Composite.allBodies(world),
     allConstraints = Composite.allConstraints(world),
     constraints = [],
