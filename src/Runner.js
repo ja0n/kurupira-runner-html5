@@ -1,12 +1,22 @@
-import RenderKurupira from './RenderKurupiraNext';
+import KurupiraRender from './Render';
 
 // Matter.js module aliases
-const { Engine, World, Body, Vector, Composite, Bodies, MouseConstraint } = Matter;
+const { Engine, World, Bodies } = Matter;
 
-let pressed = {};
 const arrowCodes = { 37: "left", 38: "up", 39: "right", 40: "down" };
+const pressed = {};
 
-export default class Handler {
+function createEventRunner(pressed, codes) {
+  return function (event) {
+    if (codes.hasOwnProperty(event.keyCode)) {
+      var down = event.type == "keydown";
+      pressed[codes[event.keyCode]] = down;
+      event.preventDefault();
+    }
+  }
+}
+
+export default class Runner {
   constructor(data) {
     this._data = data;
     this._normalCounter = 0;
@@ -14,18 +24,23 @@ export default class Handler {
     this.engine = Engine.create({
       render: {
         element: document.body,
-        controller: new RenderKurupira()
+        controller: new KurupiraRender()
       },
       normal: [],
       pressed: {}
     });
 
-    const handler = createHandler(this.engine.pressed, arrowCodes);
+    const handler = createEventRunner(this.engine.pressed, arrowCodes);
     window.addEventListener("keydown", handler);
     window.addEventListener("keyup", handler);
 
     this.loadData(data);
 
+  }
+
+  addMouseConstraint () {
+    const mouseConstraint = Matter.MouseConstraint.create(this.engine);
+    World.add(this.engine.world, [mouseConstraint]);
   }
 
   loadData(data) {
@@ -69,15 +84,4 @@ export default class Handler {
     Engine.run(this.engine);
   }
 
-}
-
-function createHandler(pressed, codes) {
-  return function(event) {
-    // console.log(pressed);
-    if (codes.hasOwnProperty(event.keyCode)) {
-      var down = event.type == "keydown";
-      pressed[codes[event.keyCode]] = down;
-      event.preventDefault();
-    }
-  }
 }

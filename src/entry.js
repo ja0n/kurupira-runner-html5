@@ -1,34 +1,41 @@
-import Handler from './Handler';
-
-const data = require('./model.json');
-window.data = data;
-window.Handler = Handler;
 // Matter.js module aliases
-const { Engine, World, Body, Vector, Composite, Bodies, MouseConstraint } = Matter;
+const { World, Body, Vector, Bodies } = Matter;
 
+import Runner from './Runner';
+const data = require('./model.json');
 
-let Game = new Handler(data);
+const Game = new Runner(data);
+const gameWorld = Game.engine.world;
 
-var mouse = MouseConstraint.create(Game.engine);
-var boxC = Bodies.circle(250, 100, 40);
-var roof = Bodies.rectangle(400, 10, 810, 10, { isStatic: true });
-var ground = Bodies.rectangle(400, 400, 810, 10, { isStatic: true });
-var leftWall = Bodies.rectangle(10, 100, 10, 600, { isStatic: true });
-var rightWall = Bodies.rectangle(790, 100, 10, 600, { isStatic: true });
-
-
-// add all of the bodies to the world
-World.add(Game.engine.world, [ground, roof, leftWall, rightWall, boxC, mouse]);
-
-// renderOptions.background = './img/wall-bg.jpg';
 Game.renderOptions.showAngleIndicator = true;
 Game.renderOptions.wireframes = false;
+Game.addMouseConstraint();
+
+addWalls();
+addCircle();
 
 Game.run();
 
-setTimeout(function() {
-  Body.applyForce(boxC, Vector.create(0, 0), Vector.create(0.95, -0.5));
-  // console.log(Composite.allBodies(engine.world));
-}, 2000);
+function addWalls () {
+  const roof = Bodies.rectangle(400, 10, 810, 10, { isStatic: true });
+  const ground = Bodies.rectangle(400, 400, 810, 10, { isStatic: true });
+  const leftWall = Bodies.rectangle(10, 100, 10, 600, { isStatic: true });
+  const rightWall = Bodies.rectangle(790, 100, 10, 600, { isStatic: true });
 
-export default Handler;
+  World.add(gameWorld, [ground, roof, leftWall, rightWall]);
+}
+
+function addCircle () {
+  const circle = Bodies.circle(250, 100, 40);
+
+  setTimeout(function() {
+    Body.applyForce(circle, Vector.create(0, 0), Vector.create(0.95, 0.5));
+  }, 2000);
+
+  World.add(gameWorld, [circle]);
+}
+
+window.data = data;
+window.Runner = Runner;
+
+export default Runner;
