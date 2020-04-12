@@ -29,7 +29,7 @@ function addCircle () {
   const circle = Bodies.circle(250, 100, 40);
 
   setTimeout(function() {
-    Body.applyForce(circle, Vector.create(0, 0), Vector.create(0.95, 0.5));
+    Body.applyForce(circle, Vector.create(0, 0), Vector.create(0.95, -0.5));
   }, 2000);
 
   World.add(gameWorld, [circle]);
