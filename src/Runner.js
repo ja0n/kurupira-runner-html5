@@ -74,9 +74,9 @@ export default class Runner {
     return this.engine.render.options;
   }
 
-  renderOptions(opt) {
-    for (let prop in opt) {
-      this.render.options[prop] = opt[prop];
+  mergeOptions (options) {
+    for (let prop in options) {
+      this.engine.render.options[prop] = options[prop];
     }
   }
 

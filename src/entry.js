@@ -7,8 +7,11 @@ const data = require('./model.json');
 const Game = new Runner(data);
 const gameWorld = Game.engine.world;
 
-Game.renderOptions.showAngleIndicator = true;
-Game.renderOptions.wireframes = false;
+Game.mergeOptions({
+  showAngleIndicator: true,
+  wireframes: false,
+});
+
 Game.addMouseConstraint();
 
 addWalls();
