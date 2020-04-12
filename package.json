@@ -1,7 +1,7 @@
 {
-  "name": "html5-runner",
+  "name": "kurupira-runner",
   "version": "0.0.1",
-  "description": "Curupira is a minimal web-based game engine made with love for children. Actually Curupira is a experiment for generating games based on description files. This interface generates the description file.",
+  "description": "KurupiraRunner is a data-driven game engine",
   "main": "app.js",
   "scripts": {
     "test": "test",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ja0n/kurupira-gui.git"
+    "url": "git+https://github.com/ja0n/kurupira-runner-html5.git"
   },
   "author": "ja0n",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ja0n/kurupira-gui/issues"
+    "url": "https://github.com/ja0n/kurupira-runner-html5/issues"
   },
-  "homepage": "https://github.com/ja0n/kurupira-gui#readme",
+  "homepage": "https://github.com/ja0n/kurupira-runner-html5#readme",
   "dependencies": {
     "json-loader": "^0.5.4",
     "matter-js": "^0.14.1",
