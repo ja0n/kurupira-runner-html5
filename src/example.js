@@ -1,9 +1,7 @@
-// Matter.js module aliases
-const { World, Body, Vector, Bodies } = Matter;
-
+import { World, Body, Vector, Bodies } from 'matter-js';
 import Runner from './Runner';
-const data = require('./model.json');
 
+const data = require('./model.json');
 const Game = new Runner(data);
 const gameWorld = Game.engine.world;
 
@@ -37,8 +35,3 @@ function addCircle () {
 
   World.add(gameWorld, [circle]);
 }
-
-window.data = data;
-window.Runner = Runner;
-
-export default Runner;

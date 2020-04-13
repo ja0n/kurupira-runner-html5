@@ -1,4 +1,5 @@
-const { Composite, Common } = Matter;
+import * as PIXI from 'pixi.js';
+import { Composite, Common } from 'matter-js';
 
 let Singleton;
 

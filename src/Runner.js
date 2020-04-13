@@ -1,10 +1,7 @@
+import { Engine, World, Bodies, MouseConstraint } from 'matter-js';
 import KurupiraRender from './Render';
 
-// Matter.js module aliases
-const { Engine, World, Bodies } = Matter;
-
 const arrowCodes = { 37: "left", 38: "up", 39: "right", 40: "down" };
-const pressed = {};
 
 function createEventRunner(pressed, codes) {
   return function (event) {
@@ -39,7 +36,7 @@ export default class Runner {
   }
 
   addMouseConstraint () {
-    const mouseConstraint = Matter.MouseConstraint.create(this.engine);
+    const mouseConstraint = MouseConstraint.create(this.engine);
     World.add(this.engine.world, [mouseConstraint]);
   }
 

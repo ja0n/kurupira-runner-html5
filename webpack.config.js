@@ -2,10 +2,13 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
-  entry: './src/entry.js',
+  entry: {
+    runner: './src/index.js',
+    example: './src/example.js',
+  },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: '[name].js'
   },
   devServer: {
     // contentBase: path.join(__dirname, "dist"),
