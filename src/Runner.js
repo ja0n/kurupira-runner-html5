@@ -14,14 +14,14 @@ function createEventRunner(pressed, codes) {
 }
 
 export default class Runner {
-  constructor(data) {
+  constructor(data, element) {
     this._data = data;
     this._normalCounter = 0;
     this.pressed = {};
     this.engine = Engine.create({
       render: {
-        element: document.body,
-        controller: new KurupiraRender()
+        element: element || document.body,
+        controller: new KurupiraRender(),
       },
       normal: [],
       pressed: {}
