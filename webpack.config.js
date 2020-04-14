@@ -3,16 +3,16 @@ var path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: {
-    runner: './src/index.js',
-    example: './src/example.js',
-  },
+  entry: './src/index.js',
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].js'
+    library: 'KurupiraRunner',
+    libraryTarget: 'umd',
+    filename: 'kurupira-runner.js',
+    auxiliaryComment: 'KurupiraRunner',
   },
   devServer: {
-    // contentBase: path.join(__dirname, "dist"),
+    contentBase: path.join(__dirname, "public"),
     compress: true,
     port: 8080
   },

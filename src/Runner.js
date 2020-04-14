@@ -1,5 +1,6 @@
-import { Engine, World, Bodies, MouseConstraint } from 'matter-js';
+import * as Matter from 'matter-js';
 import KurupiraRender from './Render';
+import { Engine, World, Bodies, MouseConstraint } from 'matter-js';
 
 const arrowCodes = { 37: "left", 38: "up", 39: "right", 40: "down" };
 
@@ -14,6 +15,8 @@ function createEventRunner(pressed, codes) {
 }
 
 export default class Runner {
+  static Matter = Matter;
+
   constructor(data, element) {
     this._data = data;
     this._normalCounter = 0;
@@ -41,8 +44,11 @@ export default class Runner {
   }
 
   loadData(data) {
+    this.loadActors(data.actors);
+  }
 
-    data.actors.forEach(actor => {
+  loadActors (actors) {
+    actors.forEach(actor => {
       if (actor.act)
         actor.act = actor.act.map(behavior => Function.apply(null, behavior));
 
