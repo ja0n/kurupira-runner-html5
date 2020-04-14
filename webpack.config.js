@@ -2,6 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
+  mode: 'development',
   entry: {
     runner: './src/index.js',
     example: './src/example.js',
@@ -13,20 +14,12 @@ module.exports = {
   devServer: {
     // contentBase: path.join(__dirname, "dist"),
     compress: true,
-    port: 8080 
+    port: 8080
   },
   module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-        }
-      },
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
-      { test: /\.json$/, loader: 'json-loader' },
-      { test: /\.html$/, loader: 'raw-loader' },
+    rules: [
+      { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' },
+      { test: /\.html$/, use: 'raw-loader' },
     ],
   }
 };

@@ -2,7 +2,7 @@
   "name": "kurupira-runner",
   "version": "0.0.1",
   "description": "KurupiraRunner is a data-driven game engine",
-  "main": "app.js",
+  "main": "dist/runner.js",
   "scripts": {
     "test": "test",
     "start": "webpack",
@@ -22,7 +22,7 @@
     "json-loader": "^0.5.4",
     "matter-js": "^0.14.1",
     "pixi.js": "^4.7.0",
-    "webpack-dev-server": "^2.11.1"
+    "webpack-dev-server": "^3.10.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -32,6 +32,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-0": "^6.24.1",
     "raw-loader": "^0.5.1",
-    "webpack": "^3.11.0"
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11"
   }
 }
