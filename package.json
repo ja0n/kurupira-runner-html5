@@ -5,9 +5,10 @@
   "main": "dist/runner.js",
   "scripts": {
     "test": "test",
-    "start": "webpack",
-    "start:dev": "webpack-dev-server",
-    "build": "webpack -c webpack.config.js --mode=production"
+    "start": "webpack -c webpack.config.js ",
+    "start:dev": "webpack-dev-server -c webpack.config.js ",
+    "build": "webpack -c webpack.config.js --mode=production",
+    "postinstall": "webpack -c webpack.config.js --mode=production"
   },
   "repository": {
     "type": "git",
