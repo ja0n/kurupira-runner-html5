@@ -1,0 +1,22 @@
+{
+  "name": "kurupira-runner",
+  "version": "0.0.1",
+  "description": "KurupiraRunner is a data-driven game engine",
+  "main": "dist/kurupira-runner.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ja0n/kurupira-runner-html5.git"
+  },
+  "author": "ja0n",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ja0n/kurupira-runner-html5/issues"
+  },
+  "homepage": "https://github.com/ja0n/kurupira-runner-html5#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
